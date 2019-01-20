@@ -1,0 +1,60 @@
+	.data
+Q1: .asciiz "Please enter a value for a: "
+Q2: .asciiz "Please enter a value for x: "
+n: .asciiz "\n"
+R: .asciiz "y="
+R4: .asciiz " R4."
+	.text
+
+main:
+
+	li $v0, 4
+	la $a0, Q1
+	syscall				# ask user for a value for a
+
+	li $v0, 5
+	syscall
+	move $v0, $t0		# a is in $t0
+
+	li $v0, 4
+	la $a0, n
+	syscall				# new line
+
+	li $v0, 4
+	la $a0, Q2
+	syscall				# ask user for a value for x
+
+	li $v0, 5
+	syscall
+	move $v0, $t1		# x is in $t1
+
+	li $v0, 4
+	la $a0, n
+	syscall				# new line
+
+	addi $t0, $t0, 13
+	mult $t1, $t1
+	mflo $t9
+	mult $t0, $t9
+	mflo $t0
+	li $t2, 4
+	mult $t1, $t2
+	mflo $t1
+	add $t0, $t0, $t1
+	li $t2, 5
+	div $t0, $t0, $t2
+
+	li $v0, 4
+	la $a0, R
+	syscall
+
+	li $v0, 1
+	move $a0, $t0
+	syscall
+
+	li $v0, 4
+	la $a0, R4
+	syscall
+
+	li $v0, 10
+	syscall
