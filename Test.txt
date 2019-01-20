@@ -1,0 +1,65 @@
+	.data
+Q2: .asciiz "\n"
+	.text
+
+main:
+
+li $t0, 2
+li $t1, 0x80000000
+li $t2, 0x7FFFFFFF
+li $t3, 0xBFFFFFFF
+
+li $v0, 1
+move $a0, $t2
+syscall
+
+li $v0, 4
+la $a0, Q2
+syscall
+
+li $v0, 1
+move $a0, $t1
+syscall
+
+li $v0, 4
+la $a0, Q2
+syscall
+
+li $v0, 1
+move $a0, $t3
+syscall
+
+mult $t3, $t0	
+mflo $a1
+mfhi $a2
+
+mult $a1, $a2
+mflo $a3
+
+li $v0, 4
+la $a0, Q2
+syscall
+
+li $v0, 1
+move $a0, $a1
+syscall
+
+li $v0, 4
+la $a0, Q2
+syscall
+
+li $v0, 1
+move $a0, $a2
+syscall
+
+li $v0, 4
+la $a0, Q2
+syscall
+
+li $v0, 1
+move $a0, $a3
+syscall
+
+li $v0, 10
+syscall
+
