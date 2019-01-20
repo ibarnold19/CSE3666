@@ -1,0 +1,379 @@
+.data
+description: .asciiz "Welcome to Shrek's Adventure Time!
+Shrek, Donkey and Boots are sent by Lord Farquaad to rescue Princess Fiona. It won't
+be easy, she is locked away in the highest tower of a treacherous castle. Your task
+is to help guide our friends on their journey to save the Princess."
+
+directions: .asciiz "Directions:
+You must select one of the characters as your team leader. There will be numerous
+scenarios with different options/actions(labeled 1-4). You must select one of these
+actions to execute, your selection will be graded with a Success, Mediocre or Failure
+depending on the quality of your selection (The quality of your response also depends on the 
+character/team-captain that you pick). To win the game, you must get through all of these 
+situations and save the princess. 
+Each failure results in a death, you have 3 lives in total, so 3 failures means 
+you lose the game. Also, if you get 2 Mediocre grades IN A ROW, that leads to a
+death as well. A success grade bears no penalty, you just move onto the next scenario.
+
+Each of the characters have different strengths and weaknesses listed below."
+
+characters: .asciiz "Shrek:
+	Shrek is a mythical creature that is feared by the villagers. Some say his strength
+	is that of 10 men. His methods are not always foolproof and he is not the sharpest 
+	tool in the shed. His stature leaves his enemies quivering with fear, however you can
+	hear or see him coming from a mile away.
+	
+Donkey:
+	Donkey is, well... a donkey. His four legs allow him to outspeed many opponents as he 
+	is the fastest member of our crew. He is also known for his charisma as he is able to 
+	talk his way out of situations. However, Donkey is a coward, which leads him to avoid 
+	most confrontations. His mouth is one of his strengths, but it is also his weakness, 
+	as he never shuts up, so people can always hear him; his hooves don't help in this 
+	category (stealth)
+
+Boots:
+	Boots is a skilled feline swordsman with a cunning to maneuver his way out of sticky 
+	situations. His small stature allows him to go places others normally could not and 
+	also allows him to sneak by most opponents. He is also a very seductive creature. His 
+	size is also his weakness because he cannot take on larger foes. He is also still a 
+	cat, so he is subject to cat-like behavior such as fear of water and attention to 
+	miscellaneous objects."
+	
+Line: .asciiz "\n"
+
+continue: .asciiz "Press 1 to continue." 
+
+pickChar: .asciiz "Choose a character:
+	1: Shrek
+	2: Donkey
+	3: Boots
+	
+	Your choice: "
+
+shrek: .asciiz "You have selected Shrek. Good luck in your journey."
+donkey: .asciiz "You have selected Donkey. Good luck in your journey."
+boots: .asciiz "You have selected Boots. Good luck in your journey."
+scene1: .asciiz "Our three heroes were all playing Shrek's Adventure Time at Shrek's swamp.
+				All of a sudden, they hear commotion outside. It is a variety of fairy tale 
+				creatures that were kicked out of their homes by Lord Farquaad. What do you do? 
+				1: Attempt to drive them away
+				2: Give up and live with it
+				3: Seek lord Farquad's counsel
+				4: Negotiate with said creatures"
+scene2:	.asciiz "While journeying through the forest, our heroes encounter Robin Hood and his
+				Merry Men. Shrek has wanted posters all over the land, so Robin Hood, being 
+				chivalrous gent that he is, is looking to kill Shrek. They then approach our
+				heroes with weapons armed and ready. They tactically split the heroes and corner
+				them. 
+				What do you do?
+				1: Reason with the Merry Men
+				2: Try to fight them
+				3: Attempt to flee
+				4: Quiver in fear praying for the best"
+scene3:	.asciiz "Our heroes decide to go to Lord Farquad's castle. At the sight of the castle
+				Shrek cracks a joke, saying that Lord Farquaad is compensating for something. 
+				When they enter the arena, they see knights jockeying for position to save the 
+				beautiful Princess Fiona. When the crowd sees Shrek, they are taken aback; they gasp 
+				in disbelief. Lord Farquaad sees a perfect opportunity and exclaims 'The one who kills 
+				the Ogre, will be the knight that will journey to save our princess!' The knights charge 
+				our heroes, what do you do?
+				1: Attempt to unleash Randy Orton's signature wrestling move: the RKO
+				2: Use the giant keg as a steam roller
+				3: Attempt to court the knights 
+				4: Eat one of Shrek's onions"
+scene4:	.asciiz "Lord Farquaad now commands our squad to go save Princess Fiona. This is the only way
+				to rid Shrek's swamp of fairy tale creatures. They set sail on their journey, but outside	
+				of Lord Farquad's castle, an immense corn field stands in their path. The corn field seems
+				to have had a path carved through it like a maze. There seems to be no way around it as the 
+				field stretches both ways for miles. How will you overcome this predicament?
+				1: Head straight through it hoping for the best
+				2: Set the field on fire to easily get across
+				3: Use your cunning to get across the maze
+				4: Try and go around"
+scene5:	.asciiz "Our squad has gotten past the corn field. Long after the corn field, our heroes are famished,
+				they are dearly in need of food other than onions. They come across a questionably looking tavern.
+				They go inside, and all of the patrons look deadly. They sit at a table, and a server comes over
+				and asks our gang what they would like to eat. What shall you order?
+				1: A stout of mead
+				2: More onions
+				3: Steak-frites
+				4: Double Triple Bossy Deluxe on a raft, four by four, animal-style, extra shingles with a shimmy and 
+				a squeeze, light axle grease, make it cry, burn it, and let it swim"
+scene6: .asciiz "Now our motley crew has arrived at the castle. There is a long, narrow bridge standing over a pool of 
+				MOLTEN HOT LAVA. Inside the lava, there are volcano sharks with heat-vision. There is no other way into 
+				the castle. How shall you cross?
+				1: Give up, jump into the lava
+				2: Have no fear, cross the bridge
+				3: Roll across the bridge
+				4: Use the pieces of the bridge to construct an aircraft"
+scene7:	.asciiz "Our heroes have crossed the bridge of terror. Now they are standing in a VAST hall, 
+				there are multiple directions to go. On the right, there is a narrow passageway with 
+				a DO NOT ENTER sign. On the left, there is an entrance to an theme park, dubbed 'George's
+				adventureland'. Straight ahead, there is a group of knights that are seemingly under the
+				the influence.
+				1: The three heroes decide to split up and go in different directions
+				2: Go right
+				3: Go left
+				4: Go straight ahead"
+scene8: .asciiz "They are passed the hall, and are now in an armory. They are shining suits
+				of armor on the left side of the armory guarded by a sleeping witch. On the 
+				right, there is an exit to the next room. 
+				1: Sneak by the witch and get the armor
+				2: Beat up the witch to get the armor
+				3: Go to the next room
+				4: Incept her"
+scene9: .asciiz "After the armory, they enter a massive chapel. They are surrounded by rows
+				and rows of pews and religious imagery all around. Suddenly, a deafening, 
+				ferocious roar rang out. The chapel began to shudder and the ancient ceiling
+				began to collapse. Quickly, what do you do?
+				1: Hide beneath a pew and pray
+				2: Try and avoid the oncoming debris
+				3: Try to run back to the armory
+				4: Go full Hulk"
+scene10: .asciiz "After surviving the cave in, a pile of rocks created a pathway to the next
+				floor. The way out of the chapel is now blocked, so there was no other option,
+				they must adventure to the next floor. After climbing the pile, they are 
+				greeted by a legion of pygmies. They stare at our group, but have no initial
+				actions towards them. What do you do?
+				1: Pretend they are small footballs and punt them
+				2: Attempt to speak in their tongue
+				3: Walk by them, ignoring their presence 
+				4: Assert dominance and stare back"
+scene11: .asciiz "A putrid odor emitted from the next room. As the brave adventurers neared
+				the entrance, the source of the smell became apparent. They see an R-rated scene
+				of piles of bones and corpses. They try to get through the room as fast as possible,
+				but the exit door is locked. Maybe one of these bodies has the key! What dp you do?
+				1: Search each corpse for a key
+				2: Use a necronomicon 
+				3: Use any means to bash the door down
+				4: Pick the lock"
+scene12: .asciiz "After what seemed like hours of walking through the complex castle, the heroes
+				were at their wits end. Tensions were high and they had no sense of direction. They
+				then stumbled upon a Super Comforter Recliner Chair 3000. It was equipped with dual
+				cup holders and massage capabilities. This was too good to be true. There was a strange
+				strap that seemed to fasten the user's head to the headrest. But who cares, comfy chair.
+				What do you do?
+				1: Sit back, relax
+				2: Use someone else as a test dummy
+				3: Pass up on this once in a lifetime chance
+				4: Inspect thoroughly before attempting to sit"
+scene13: .asciiz "Looking outside the castle windows, the tower where Fiona is can be seen getting
+				closer and closer. They are stopped by two fairies guarding two doors. One fairy explains
+				that one of the fairies is evil and will always lie, while the other is good and will always
+				tell the truth. One door leads to the passage where Fiona is, while the other leads to doom.
+				You can ask one fairy one question of which door to pick, then they show you the door based on
+				your answer. What do you ask?
+				1: Pick one of them and ask which door is the right way
+				2: Pick one of them and ask which door the other fairy would say is the right door
+				3: Ask one of them what the airborne velocity is of a swallow
+				4: Yolo"
+scene14: .asciiz "The next room was not friendly looking in the slightest. It was filled with instruments
+				for torture and cruel devices for coercion. Shrek steps on a suspicious tile and
+				suddenly the three heroes are plunged into a trap floor. Once inside the new room, the walls
+				begin to close in and water begins to rise. There is a lever on one side of the room that is
+				too far away to get in time and a vent on the other side that is much closer. What is you plan of action?
+				1: Book it to the vent
+				2: Use a lasso to pull the lever
+				3: Use the powers of the force to repel the walls back
+				4: Become a merman"
+scene15: .asciiz "Moving on to the next room, a massive pit lies between them and the next door and where they stand.
+				A large chandelier is hanging over the pit and seems to be able to sway back and forth. What do you do?
+				1: Risk it for the biscuit, cross using the chandelier
+				2: Assume whatever is at the bottom of this pit won't kill you
+				3: Call upon your skunk-wing brethren
+				4: Charge up like Sonic and shoot across"
+scene16: .asciiz "Now, the heroes find themselves in a very large room. There is a large throne centered in the middle
+				of the room. As they approached the throne, heavy breathing was heard. Looking around for the source
+				in the dark room, a massive black outline could be seen just behind the throne. A fire breathing dragon was
+				slumbering right before them, with fire emanating out of its maw every breath. Donkey lets out a yelp and
+				awakens the beast! What should you do?
+				1: Prepare for combat!
+				2: Foos Roh Dah
+				3: FLEEEEEEE
+				4: Meld into the shadows"
+scene17: .asciiz "The dragon easily chases them down and is now upon them! It bears its reptilian claws and begins to take a deep breath. 
+				There is no way our heroes can survive this if they don't act fast! What shall you do?
+				1: Stand your ground and FIGHT!
+				2: Charm the dragon
+				3: Throw down in a rap battle
+				4: Use your gastrointestinal powers"
+scene18: .asciiz "The heroes managed to survive a fiery doom, and reached the base of the highest tower of the castle. Fiona was close!
+				They climbed up the tower and entered a room with a luxurious bed, and Fiona asleep on it. The crew approached 
+				her, and shook her awake. She awakens, bewildered at the sight of the gang. They try to convince the princess to leave,
+				but she is hesitant on whether to trust her 'heroes'. How do you convince her to go?
+				1: Take off your armor
+				2: Take her against her will
+				3: Explain Lord Farquaad's mission
+				4: Leave, she ain't coming"
+scene19: .asciiz "The end of the heroes' quest was finally within reach! All they had to do now, was simply make their way
+				out of the castle. Everything was smooth sailing, until they reached the chandelier room. The dragon flew up
+				out of the massive pit, enraged at the band of heroes. The dragon lashed out, nearly striking Donkey's butt.
+				Deal with this dragon once and for all!
+				1: Quiver in fear
+				2: Attempt to overwhelm it with your superior numbers
+				3: Use the claymore conveniently placed nearby
+				4: Drop the chandelier"
+scene20: .asciiz "After the dragon has been defeated, the entire castle couldn't handle the intensity of
+				the heated conflict. The walls and ceiling began to fall apart, sending huge debris all over the
+				place. The heroes had to find a quick way to escape from the castle, and begin their final stretch
+				back to Lord Farquaad. The team manages to make it back to the exit bridge,
+				but the dragon once again surprises them and is trailing right behind. 
+				It takes one more deep breath. Time is running out, what should you do?
+				1: Seduce the dragon
+				2: Smite the dragon and cast it into the fire chasm from whence it came
+				3: Usain Bolt it outta there
+				4: Show off your mad hops and jump across"
+
+GameOver: .asciiz "You ran out of lives! Game over."
+
+PlayAgain: .asciiz "Play again? Y/N?"
+
+Victory: .asciiz "You managed to complete the impossible! You guided our group of heroes
+				through the castle, through many challenges, and overcame a fearsome dragon.
+				With Fiona part of the group now, the group makes their way back to Lord
+				Farquaad's castle, so Shrek can reclaim his swamp. The end."
+.text
+main:
+	
+	li $v0, 4
+	la $a0, description
+	syscall
+	
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+while:	
+	
+	li $v0, 4
+	la $a0, continue
+	syscall
+	
+	li $v0, 5
+	syscall
+	move $s1, $v0
+	
+	beq $s1, 1, cont1
+	
+	j while
+
+cont1: 	
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, directions
+	syscall
+	
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+while2:	
+
+	li $v0, 4
+	la $a0, continue
+	syscall
+	
+	li $v0, 5
+	syscall
+	move $s1, $v0
+	
+	beq $s1, 1, cont2
+	
+	j while2
+
+cont2:	
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, characters
+	syscall
+	
+	
+pickCharacter:
+
+while3:
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, pickChar
+	syscall
+	
+	li $v0, 5
+	syscall
+	move $s1, $v0	#Character picked stored in $s1 (1, 2 or 3)
+	
+	beq $s1, 1, Shrek
+	beq $s1, 2, Donkey
+	beq $s1, 3, Boots
+	
+	j while3
+	
+Shrek:
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, shrek
+	syscall
+	
+	j Game
+	
+Donkey:
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, donkey
+	syscall
+	
+	j Game
+	
+Boots:
+	li $v0, 4
+	la $a0, Line
+	syscall
+	
+	li $v0, 4
+	la $a0, boots
+	syscall
+	
+	j Game
+
+
+Game: 
+
+	li $v0, 10
+	syscall
+	
+
+
+
